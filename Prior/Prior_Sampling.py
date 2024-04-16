@@ -1,125 +1,184 @@
+# imports
 import numpy as np
+import scipy.stats as s
 import matplotlib.pyplot as plt
-from scipy.stats import weibull_min
 
-Well_count = 5 # Number of wells
-Total_steam_flow = 1000 # Total steam flow at particular time
-Dryness = [0.182, 0.204, 0.101, 0.059, 0.137] # Dryness from excel spreadsheet
+def generateInitialAllocations(n, nx, data_points):
+    # Take data from data points to get initial guess of allocations
+    well_steamflow_sums = np.zeros(nx)
+    well_amnt_tfts = np.zeros(nx)
+    for dp in data_points:
+        well = dp['Well']
+        well_steamflow_sums[well] += dp['SteamFlow']
+        well_amnt_tfts[well] += 1
+    well_steamflow_means = np.divide(well_steamflow_sums, well_amnt_tfts)
+    well_initial_allocations = well_steamflow_means / sum(well_steamflow_means)
 
-# Parameters of the Weibull distribution
-shape = 2  # Shape parameter
-scale = 1  # Scale parameter
+    return well_initial_allocations
 
-# Generate random samples from the Weibull distribution
-# Note: weibull_min.rvs() generates random variates.
-# You may also use weibull_min.pdf() for probability density function.
-samples = weibull_min.rvs(shape, scale=scale, size=1000)
 
-# Scale and shift the samples to fit between 0 and 1
-min_val = samples.min()
-max_val = samples.max()
-scaled_samples = (samples - min_val) / (max_val - min_val)
+# Expected Value of Beta dist = a/(a+b) , mode = (a-1)/(a+b-2) , if increase a and b, then decrease variance
 
-def random_allocation(scaled_samples, num_allocations):
-    allocations = []
-    remaining = 1.0
-    for _ in range(num_allocations - 1):
-        # Ensure that allocation is greater than 0 and less than or equal to remaining
-        allocation = np.random.uniform(0, remaining)
-        allocation = min(allocation, remaining)
-        allocations.append(allocation)
-        remaining -= allocation
-    allocations.append(remaining)
-    return allocations
+# Generate distributions based on initial allocations
+def generateBetaDists(nx, initial_allocs, surety):
+    # Higher surety = lower variance (hyperparameter)
+    dists = []
+    # For each well, set up a beta distribution
+    for i in range(nx):
+        dists.append(s.beta(initial_allocs[i] * surety, surety - initial_allocs[i] * surety))
 
-def mass_calc(Wells, allocations, Steam_Total, Dryness):
-    Steam_wells = np.zeros(Wells)
-    Mass = np.zeros(Wells)
-    for i in range(Wells):
-        Steam_wells[i] = allocations[i] * Steam_Total
+    return dists
 
-    for i in range(Wells):
-        Mass[i] = Steam_wells[i] / Dryness[i]
+def generateAllocations(n, nx, data_points, surety, Generated_CI):
+    # Find initial allocations
+    initial_allocs = generateInitialAllocations(n, nx, data_points)
+    # Generate Distributions
+    dists = generateBetaDists(nx, initial_allocs, surety)
 
-    return Steam_wells, Mass
+    # Generate actual allocations
+    x = np.zeros([n, nx])
+    for i in range(n):
+        # For certain time, get alloc for all wells based on distributions, then scale
+        tmp = np.zeros(nx)
+        for j in range(nx):
+            lower_CI, upper_CI = Generated_CI[j][0], Generated_CI[j][1]
+            while tmp[j]<lower_CI or tmp[j]>upper_CI or tmp[j]==0:
+                tmp[j] = dists[j].rvs(1)
+        for j in range(nx):
+            x[i, j] = tmp[j] / sum(tmp)
 
-# ==============================================================================
-# Running the main script
-# ==============================================================================
+    # Artificially set allocations to 'optimal'
+    #     for i in range(n):
+    #         x[i,:] = initial_allocs
 
-allocations = random_allocation(scaled_samples, Well_count)
-Steam_wells, Mass = mass_calc(Well_count, allocations, Total_steam_flow, Dryness)
+    return x, dists
 
-print(allocations)
-print(Steam_wells)
-print(Mass)
+# Use 3rd (beta) distribution for drynesses (all wells have same dist atm)
 
-Well_1 = np.zeros(1000)
-Well_2 = np.zeros(1000)
-Well_3 = np.zeros(1000)
-Well_4 = np.zeros(1000)
-Well_5 = np.zeros(1000)
+def generateDryness(n, data_points):
+    # Treat dryness as constant for now
+    d = np.zeros([n, nx])
 
-for i in range(1000):
-    allocations = random_allocation(scaled_samples, Well_count)
-    Steam_wells, Mass = mass_calc(Well_count, allocations, Total_steam_flow, Dryness)
-    Well_1[i] = Mass[0]
-    Well_2[i] = Mass[1]
-    Well_3[i] = Mass[2]
-    Well_4[i] = Mass[3]
-    Well_5[i] = Mass[4]
+    # Take data from data points to get mean dryness
+    well_dryness_sums = np.zeros(nx)
+    dryness_amnt_tfts = np.zeros(nx)
+    for dp in data_points:
+        well = dp['Well']
+        well_dryness_sums[well] += dp['Dryness']
+        dryness_amnt_tfts[well] += 1
+    well_dryness_means = np.divide(well_dryness_sums, dryness_amnt_tfts)
 
-CI = np.percentile(Well_1, [2.5,97.5])
+    # Assign to dryness matrix
+    for i in range(n):
+        d[i, :] = well_dryness_means
 
-plt.hist(Well_1, bins=20, density=True, alpha=0.6, color='b', label='Data')
-plt.axvline(CI[0], color='r', linestyle='--', label='95% CI')
-plt.axvline(CI[1], color='r', linestyle='--')
-plt.xlabel('Value')
-plt.ylabel('Density')
-plt.title('Well 1 Histogram with 95% Confidence Interval')
-plt.legend()
-plt.show()
+    return d
 
-CI = np.percentile(Well_2, [2.5,97.5])
+def generateSteamFlow(x, S_total):
+    # x is n rows * xn columns
+    # S_total is n * 1
+    S = np.copy(x)
+    for i in range(len(x)):
+        S[i] = x[i] * S_total[i]
 
-plt.hist(Well_2, bins=20, density=True, alpha=0.6, color='b', label='Data')
-plt.axvline(CI[0], color='r', linestyle='--', label='95% CI')
-plt.axvline(CI[1], color='r', linestyle='--')
-plt.xlabel('Value')
-plt.ylabel('Density')
-plt.title('Well 2 Histogram with 95% Confidence Interval')
-plt.legend()
-plt.show()
+    return S
 
-CI = np.percentile(Well_3, [2.5,97.5])
 
-plt.hist(Well_3, bins=20, density=True, alpha=0.6, color='b', label='Data')
-plt.axvline(CI[0], color='r', linestyle='--', label='95% CI')
-plt.axvline(CI[1], color='r', linestyle='--')
-plt.xlabel('Value')
-plt.ylabel('Density')
-plt.title('Well 3 Histogram with 95% Confidence Interval')
-plt.legend()
-plt.show()
+def BayesianPriorBeta(n, nx, S_total, data_points, surety):
+    """
+    This function takes in the ouput dimensions, known data, and hyperparameter surety, and returns the allocations,
+    steam flows, mass flows, and the distributions used to generate these allocations. Dryness is CONSTANT, taken from data
+    inputted. Allocations are generated using a beta distribution, whose mean value is the allocation found from inputted
+    data. (Averaging occurs if there is more than one data point per well.)
+    Parameters:
+        n = number of months to run for
+        nx = number of wells
+        S_total = total steam flow over n months
+        data_points = list of dictionaries representing TFT data points.
+        surety = hyperparameter of function. Increasing this decreases the variance of our beta distributions.
+    """
+    # generate results with randomness
+    x, dists = generateAllocations(n, nx, data_points, surety)
+    d = generateDryness(n, data_points)
+    S = generateSteamFlow(x, S_total)
+    M = np.divide(S, d)
 
-CI = np.percentile(Well_4, [2.5,97.5])
+    return x, S, M, dists
 
-plt.hist(Well_4, bins=20, density=True, alpha=0.6, color='b', label='Data')
-plt.axvline(CI[0], color='r', linestyle='--', label='95% CI')
-plt.axvline(CI[1], color='r', linestyle='--')
-plt.xlabel('Value')
-plt.ylabel('Density')
-plt.title('Well 4 Histogram with 95% Confidence Interval')
-plt.legend()
-plt.show()
 
-CI = np.percentile(Well_5, [2.5,97.5])
+def Beta_Dist_CI_Generation_Plots(n, nx, data_points, surety, Confidence_Interval=0.95,show=True):
+    # Find initial allocations
+    initial_allocs = generateInitialAllocations(n, nx, data_points)
+    # Generate Distributions
+    dists = generateBetaDists(nx, initial_allocs, surety)
 
-plt.hist(Well_5, bins=20, density=True, alpha=0.6, color='b', label='Data')
-plt.axvline(CI[0], color='r', linestyle='--', label='95% CI')
-plt.axvline(CI[1], color='r', linestyle='--')
-plt.xlabel('Value')
-plt.ylabel('Density')
-plt.title('Well 5 Histogram with 95% Confidence Interval')
-plt.legend()
-plt.show()
+    confidence_interval = []
+    # Create subplots for each beta distribution
+    fig, axes = plt.subplots(nrows=nx, ncols=1, figsize=(8, 6))
+
+    # Iterate over each beta distribution
+    for i, dist in enumerate(dists):
+        ax = axes[i]  # Get the current axis
+
+        # Generate 1000 random samples
+        random_samples = dist.rvs(size=1000)
+
+        # Calculate confidence interval
+        ci = dist.interval(Confidence_Interval)
+        lower_ci, upper_ci = ci
+        confidence_interval.append(ci)
+
+        # Plot histogram
+        ax.hist(random_samples, bins=30, density=True, alpha=0.5, color='b', label=f'Well {i + 1} Beta Distribution')
+
+        # Add vertical lines for confidence interval
+        ax.axvline(lower_ci, color='r', linestyle='--')
+        ax.axvline(upper_ci, color='r', linestyle='--')
+
+        # Add labels for confidence interval
+        ax.text(0.05, 0.95, f'Lower CI: {lower_ci:.2f}\nUpper CI: {upper_ci:.2f}', transform=ax.transAxes, color='r',
+                fontsize=10, va='top')
+
+        # Add labels and title
+        ax.set_xlabel('Allocation')
+        ax.set_ylabel('Frequency')
+        ax.set_title(f'Well {i + 1} Beta Distribution with Confidence Interval')
+        ax.legend()
+
+    # Adjust layout and show plot
+    plt.tight_layout()
+    if show==True:
+        plt.show()
+
+
+    return confidence_interval
+
+# Declare input data
+iterations = 40
+# n = number of months
+n = 10
+# nx = number of wells
+nx = 3
+# Total Steam Flow
+S_total = np.array([[100], [100], [100], [110], [120], [130], [150], [180], [200], [100]])
+# Each data point can be defined by dictionary of mass flow, dryness, steam flow (and enthalpy excluded for now)
+data_points = [
+    {'Well': 0, 'Month': 2, 'Dryness': 0.3, 'MassFlow': 200., 'SteamFlow': 60.},
+    {'Well': 1, 'Month': 7, 'Dryness': 0.1, 'MassFlow': 300., 'SteamFlow': 30.},
+    {'Well': 2, 'Month': 4, 'Dryness': 0.25, 'MassFlow': 100., 'SteamFlow': 25.},
+    {'Well': 2, 'Month': 5, 'Dryness': 0.20, 'MassFlow': 100., 'SteamFlow': 20.}
+]
+# declare hyperparameter surety (decreases variance)
+surety = 400
+
+########################################################################################################################
+# All functions and such are ran below
+########################################################################################################################
+
+# CI = Beta_Dist_CI_Generation_Plots(n, nx, data_points, surety,Confidence_Interval=0.95,show=False)
+# print(CI)
+# print(CI[0][0])
+#
+# x,dist = generateAllocations(n,nx,data_points,surety,CI)
+
+allocations = generateInitialAllocations(n, nx, data_points)
