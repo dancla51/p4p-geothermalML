@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="49ae4028-c909-4261-85d5-5aca7ec5773b" name="Changes" comment="" />
+    <list default="true" id="49ae4028-c909-4261-85d5-5aca7ec5773b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../ManualDataManipulation/Example_Data_TE11764.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ManualDataManipulation/Example_Data_TE11764.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notebooks/.ipynb_checkpoints/PIMLExample-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notebooks/.ipynb_checkpoints/Regression-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notebooks/.ipynb_checkpoints/SymPyAlgebraic-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Notebooks/.ipynb_checkpoints/SymPyAlgebraic-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notebooks/SymPyAlgebraic.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Notebooks/SymPyAlgebraic.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +30,36 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Prior" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../2023/CW/main.py" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../2023/CW" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../../2023/CW/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -35,10 +71,14 @@
       <updated>1710923773786</updated>
       <workItem from="1710923775238" duration="174000" />
       <workItem from="1710924292091" duration="17000" />
+      <workItem from="1716170897076" duration="5867000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/testing_py$main.coverage" NAME="main Coverage Results" MODIFIED="1716176486653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../../2023/CW" />
   </component>
 </project>
