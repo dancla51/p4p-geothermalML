@@ -7,7 +7,7 @@ Then made flat model using .diff() and setting derivatives to 0s, forming matrix
 
 Then, When combining linear model with solving via differentiation, we get interesting results. 
 The results are inaccurate but very feasible given the information provided to the system.
-There is too many DOFs on the system?
+There is too many DOFs on the system? - Providing more data solves this
 
 Possibly introducing regularisation term would correct this, but could also overcorrect this. Same issue likely to occur for higher order polynomials.
 Or is possible that hyperparameter tuning on lambda could fix this issue. Interestingly, when lambda=0, the matrix is singular. Why?
@@ -18,6 +18,7 @@ This value gives really good results when lots of data is provided (2 or 3 per w
 
 
 Ideas:
-Introduce regularisation to 'flatten' results when not enough data provided (Ridge Regression)
+Adapt to allow for higher order polynomials - complete
+Introduce regularisation to 'flatten' results when not enough data provided (Ridge Regression) (Need to do scaling around unity for this?)
 Could we treat d (measured/not) as a non-binary variable (as in dij = 0.5 if the well was running for half of the month)?
 Expand from linear to arbitrary polynomial with feature selection (LASSO Regression)
