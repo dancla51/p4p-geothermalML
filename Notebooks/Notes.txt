@@ -19,6 +19,12 @@ This value gives really good results when lots of data is provided (2 or 3 per w
 
 Ideas:
 Adapt to allow for higher order polynomials - complete
-Introduce regularisation to 'flatten' results when not enough data provided (Ridge Regression) (Need to do scaling around unity for this?)
-Could we treat d (measured/not) as a non-binary variable (as in dij = 0.5 if the well was running for half of the month)?
-Expand from linear to arbitrary polynomial with feature selection (LASSO Regression)
+Enforce non-negativity of Wi,t ? - additional regularisation term (smooth function)
+Introduce regularisation to 'flatten' results when not enough data provided (Ridge Regression) (Need to do scaling around unity for this? - no.)
+Could we treat z (running/not) as a non-binary variable (as in zij = 0.5 if the well was running for half of the month)?
+Expand from linear to arbitrary polynomial with feature selection = LASSO = harder to do
+
+
+Notes from meeting 5/7/24:
+Aim includes to get uncertainty interval as output, so need to use Bayesian linear regression (Bishop book on ML)
+Regularise w ridge!
