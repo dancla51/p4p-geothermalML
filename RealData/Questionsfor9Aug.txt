@@ -1,0 +1,34 @@
+Should I use all points - TFT and other?
+
+	maybe use lowest wellhead pressure
+	measurements with Ys are best
+	
+
+
+Should I trust the expert's guess of when the wells were on or off
+
+	Only take TFT points if when well is on? or apply to nearby timepoint, or ignore (mention in report as negligible difference)
+
+
+Why does the experts guess ignore the TFT points so much (e.g. early yellow)?
+
+	only take some points
+
+
+Do you still think we should take monthly averages?
+
+	maybe (no)
+
+Should we discount outliers?
+
+	
+
+
+
+Use dataset to find examples of limitations and strengths of the model
+
+Show combined plot, but add individual wells in the appendix
+
+PLot trusted data vs untrusted data
+
+Report section on data quality

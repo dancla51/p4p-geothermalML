@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49ae4028-c909-4261-85d5-5aca7ec5773b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../ManualDataManipulation/Example_Data_TE11764.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../ManualDataManipulation/Example_Data_TE11764.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Notebooks/.ipynb_checkpoints/PIMLExample-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Notebooks/.ipynb_checkpoints/Regression-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Notebooks/.ipynb_checkpoints/SymPyAlgebraic-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Notebooks/.ipynb_checkpoints/SymPyAlgebraic-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Notebooks/SymPyAlgebraic.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../Notebooks/SymPyAlgebraic.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notebooks/Data/TrainingData.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notebooks/Graphs/SolvingLEastSquares/A.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Notebooks/Graphs/SolvingLEastSquares/B.PNG" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +69,7 @@
       <workItem from="1710923775238" duration="174000" />
       <workItem from="1710924292091" duration="17000" />
       <workItem from="1716170897076" duration="5867000" />
+      <workItem from="1723161959440" duration="56000" />
     </task>
     <servers />
   </component>
