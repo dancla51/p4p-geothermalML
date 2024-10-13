@@ -1,0 +1,20 @@
+TY  - JOUR
+AU  - Cai, Shengze
+AU  - Mao, Zhiping
+AU  - Wang, Zhicheng
+AU  - Yin, Minglang
+AU  - Karniadakis, George Em
+PY  - 2021
+DA  - 2021/12/01
+TI  - Physics-informed neural networks (PINNs) for fluid mechanics: a review
+JO  - Acta Mechanica Sinica
+SP  - 1727
+EP  - 1738
+VL  - 37
+IS  - 12
+AB  - Despite the significant progress over the last 50 years in simulating flow problems using numerical discretization of the Navier–Stokes equations (NSE), we still cannot incorporate seamlessly noisy data into existing algorithms, mesh-generation is complex, and we cannot tackle high-dimensional problems governed by parametrized NSE. Moreover, solving inverse flow problems is often prohibitively expensive and requires complex and expensive formulations and new computer codes. Here, we review flow physics-informed learning, integrating seamlessly data and mathematical models, and implement them using physics-informed neural networks (PINNs). We demonstrate the effectiveness of PINNs for inverse problems related to three-dimensional wake flows, supersonic flows, and biomedical flows.
+SN  - 1614-3116
+UR  - https://doi.org/10.1007/s10409-021-01148-1
+DO  - 10.1007/s10409-021-01148-1
+ID  - Cai2021
+ER  - 

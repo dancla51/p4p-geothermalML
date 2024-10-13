@@ -1,0 +1,19 @@
+TY  - JOUR
+AU  - Wang, Qi
+AU  - Ma, Yue
+AU  - Zhao, Kun
+AU  - Tian, Yingjie
+PY  - 2022
+DA  - 2022/04/01
+TI  - A Comprehensive Survey of Loss Functions in Machine Learning
+JO  - Annals of Data Science
+SP  - 187
+EP  - 212
+VL  - 9
+IS  - 2
+AB  - As one of the important research topics in machine learning, loss function plays an important role in the construction of machine learning algorithms and the improvement of their performance, which has been concerned and explored by many researchers. But it still has a big gap to summarize, analyze and compare the classical loss functions. Therefore, this paper summarizes and analyzes 31 classical loss functions in machine learning. Specifically, we describe the loss functions from the aspects of traditional machine learning and deep learning respectively. The former is divided into classification problem, regression problem and unsupervised learning according to the task type. The latter is subdivided according to the application scenario, and here we mainly select object detection and face recognition to introduces their loss functions. In each task or application, in addition to analyzing each loss function from formula, meaning, image and algorithm, the loss functions under the same task or application are also summarized and compared to deepen the understanding and provide help for the selection and improvement of loss function.
+SN  - 2198-5812
+UR  - https://doi.org/10.1007/s40745-020-00253-5
+DO  - 10.1007/s40745-020-00253-5
+ID  - Wang2022
+ER  - 

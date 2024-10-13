@@ -1,0 +1,18 @@
+TY  - JOUR
+AU  - Wang, Dongshu
+AU  - Tan, Dapei
+AU  - Liu, Lei
+PY  - 2018
+DA  - 2018/01/01
+TI  - Particle swarm optimization algorithm: an overview
+JO  - Soft Computing
+SP  - 387
+EP  - 408
+VL  - 22
+IS  - 2
+AB  - Particle swarm optimization (PSO) is a population-based stochastic optimization algorithm motivated by intelligent collective behavior of some animals such as flocks of birds or schools of fish. Since presented in 1995, it has experienced a multitude of enhancements. As researchers have learned about the technique, they derived new versions aiming to different demands, developed new applications in a host of areas, published theoretical studies of the effects of the various parameters and proposed many variants of the algorithm. This paper introduces its origin and background and carries out the theory analysis of the PSO. Then, we analyze its present situation of research and application in algorithm structure, parameter selection, topology structure, discrete PSO algorithm and parallel PSO algorithm, multi-objective optimization PSO and its engineering applications. Finally, the existing problems are analyzed and future research directions are presented.
+SN  - 1433-7479
+UR  - https://doi.org/10.1007/s00500-016-2474-6
+DO  - 10.1007/s00500-016-2474-6
+ID  - Wang2018
+ER  - 

@@ -1,0 +1,48 @@
+PMID- 11236807
+OWN - NLM
+STAT- MEDLINE
+DCOM- 20010521
+LR  - 20181113
+IS  - 0312-5963 (Print)
+IS  - 0312-5963 (Linking)
+VI  - 40
+IP  - 1
+DP  - 2001 Jan
+TI  - A brief introduction to Monte Carlo simulation.
+PG  - 15-22
+AB  - Simulation affects our life every day through our interactions with the 
+      automobile, airline and entertainment industries, just to name a few. The use of 
+      simulation in drug development is relatively new, but its use is increasing in 
+      relation to the speed at which modern computers run. One well known example of 
+      simulation in drug development is molecular modelling. Another use of simulation 
+      that is being seen recently in drug development is Monte Carlo simulation of 
+      clinical trials. Monte Carlo simulation differs from traditional simulation in 
+      that the model parameters are treated as stochastic or random variables, rather 
+      than as fixed values. The purpose of this paper is to provide a brief 
+      introduction to Monte Carlo simulation methods.
+FAU - Bonate, P L
+AU  - Bonate PL
+AD  - Clinical Pharmacokinetics, Quintiles, Kansas City, Missouri 64134, USA. 
+      peter.bonate@quintiles.com
+LA  - eng
+PT  - Journal Article
+PL  - Switzerland
+TA  - Clin Pharmacokinet
+JT  - Clinical pharmacokinetics
+JID - 7606849
+SB  - IM
+MH  - *Computer Simulation
+MH  - *Models, Theoretical
+MH  - *Monte Carlo Method
+MH  - *Pharmacokinetics
+MH  - Random Allocation
+MH  - Software
+EDAT- 2001/03/10 10:00
+MHDA- 2001/05/25 10:01
+CRDT- 2001/03/10 10:00
+PHST- 2001/03/10 10:00 [pubmed]
+PHST- 2001/05/25 10:01 [medline]
+PHST- 2001/03/10 10:00 [entrez]
+AID - 10.2165/00003088-200140010-00002 [doi]
+PST - ppublish
+SO  - Clin Pharmacokinet. 2001 Jan;40(1):15-22. doi: 10.2165/00003088-200140010-00002.

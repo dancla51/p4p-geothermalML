@@ -1,0 +1,88 @@
+
+Should references / appendices be before/after and in table of contents?
+Ref before
+
+Do we need list of figures and tables?
+
+Is my discussion in depth enough?
+
+How get figures to display in right place? [t]
+ - should be on page of first reference or one after
+ - \clearpage enforces all images to be shown before text continuues
+
+What to include in Appendices?
+ - optional
+ - parts of code
+ - reference in body of text
+
+
+
+
+Abrstract:
+summary, Main findings + conclusions
+
+
+
+TODO:
+
+Expand on Captions (overlap is good).
+Quantify using RMSE earlier (throughout)
+Combine list of fig and tables
+Table of RMSEs in discussion, and RMSEs throughout
+Reference Michael's report in figure caption: e.g.
+Discuss making z non-binary
+
+
+
+@MastersThesis{Sluyter2022_partIV, 
+Author = {Luke Sluyter}, 
+title = {Digital Corrosion Map for {Aotearoa New Zealand} by Big Data Analytics}, 
+school = {Department of Engineering Science}, 
+type = {{BHons} thesis}, 
+year = {2022}, 
+address = {University of Auckland}, }
+
+
+### Feedback from Michael 08/10/2024:
+
+Include punctuation for equations in the sentence style.
+Eq 2.2.3?
+Explain zi,t etc right afterwards in initial equations
+Remove I/we/our
+Reference Michael in research scope
+Broken links
+Use figures [h]
+Figures e.g. 2.3.1 should be uppercase and Eq., etc.
+Go light on 'very's
+Numbers less than ten should be written as a word (except well 1, as its a name).
+Table captions
+Paul Abrasaldo and Warren Mannington
+separator 3 -> Separator 3
+' -> `
+. in chapter 4.1 paragraph 3
+Combine figures into A,B,C with 1 caption to combine better.
+Show total steam flow in appendix (except first one)
+Nearly identical -> detail -> table? or plot? -> more specific refering to each term -> relative error row or RMSE between lines generated.
+These are interesting -> delete!
+Intro to each chapter.
+Math mode for i, t, n etc.
+Figure captions in early sections.
+Grammarly!
+Mention quantity of data provided for good predictiions etc, in discussion, quantify computational limits.
+Mention computational efficiency vs Michael's (his takes 10 mins)
+Ref. 17, commas
+19 no double DOI
+24, authors
+PINNs, AI, ML need to be capitalised with curly brackets in titles.
+Geothermal landscape in NZ could be referenced (ministry paper?)
+Only osme of caption in list, e.g. [title] continued
+Add table of symbols (Nomenclature), after list of tables.
+Lambda = reg.param in table of cont,
+delete to reduce overfitting
+be more specific on models in sectrion titles
+Abstract!!
+Expand title line spacing (remove Michael from title page)
+
+
+
+

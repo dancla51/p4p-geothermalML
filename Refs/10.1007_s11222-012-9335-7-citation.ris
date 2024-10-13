@@ -1,0 +1,19 @@
+TY  - JOUR
+AU  - Barnes, Chris P.
+AU  - Filippi, Sarah
+AU  - Stumpf, Michael P. H.
+AU  - Thorne, Thomas
+PY  - 2012
+DA  - 2012/11/01
+TI  - Considerate approaches to constructing summary statistics for ABC model selection
+JO  - Statistics and Computing
+SP  - 1181
+EP  - 1197
+VL  - 22
+IS  - 6
+AB  - For nearly any challenging scientific problem evaluation of the likelihood is problematic if not impossible. Approximate Bayesian computation (ABC) allows us to employ the whole Bayesian formalism to problems where we can use simulations from a model, but cannot evaluate the likelihood directly. When summary statistics of real and simulated data are compared—rather than the data directly—information is lost, unless the summary statistics are sufficient. Sufficient statistics are, however, not common but without them statistical inference in ABC inferences are to be considered with caution. Previously other authors have attempted to combine different statistics in order to construct (approximately) sufficient statistics using search and information heuristics. Here we employ an information-theoretical framework that can be used to construct appropriate (approximately sufficient) statistics by combining different statistics until the loss of information is minimized. We start from a potentially large number of different statistics and choose the smallest set that captures (nearly) the same information as the complete set. We then demonstrate that such sets of statistics can be constructed for both parameter estimation and model selection problems, and we apply our approach to a range of illustrative and real-world model selection problems.
+SN  - 1573-1375
+UR  - https://doi.org/10.1007/s11222-012-9335-7
+DO  - 10.1007/s11222-012-9335-7
+ID  - Barnes2012
+ER  - 

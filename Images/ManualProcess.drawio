@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net" modified="2024-04-25T04:44:37.439Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="2959kb6SNYt_svfzj05A" version="24.1.0" type="device">
+  <diagram name="Page-1" id="tH5KauIsJjBbfJ_-hIY1">
+    <mxGraphModel dx="1434" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5DUeM5YPUfYHvOHh3iuN-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5DUeM5YPUfYHvOHh3iuN-13">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="185" y="340" as="targetPoint" />
+            <mxPoint x="125" y="340" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5DUeM5YPUfYHvOHh3iuN-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5DUeM5YPUfYHvOHh3iuN-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="405" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5DUeM5YPUfYHvOHh3iuN-3" value="Estimate contribution and dryness for each well" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="185" y="310" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5DUeM5YPUfYHvOHh3iuN-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5DUeM5YPUfYHvOHh3iuN-5" target="5DUeM5YPUfYHvOHh3iuN-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="635" y="260" />
+              <mxPoint x="260" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5DUeM5YPUfYHvOHh3iuN-9" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="5DUeM5YPUfYHvOHh3iuN-8">
+          <mxGeometry x="-0.3438" y="3" relative="1" as="geometry">
+            <mxPoint x="111" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5DUeM5YPUfYHvOHh3iuN-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="5DUeM5YPUfYHvOHh3iuN-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="745" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5DUeM5YPUfYHvOHh3iuN-11" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="5DUeM5YPUfYHvOHh3iuN-10">
+          <mxGeometry x="-0.01" y="-5" relative="1" as="geometry">
+            <mxPoint x="5" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5DUeM5YPUfYHvOHh3iuN-5" value="Do results&amp;nbsp;&lt;div&gt;align with measured values?&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="575" y="280" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="5DUeM5YPUfYHvOHh3iuN-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5DUeM5YPUfYHvOHh3iuN-6" target="5DUeM5YPUfYHvOHh3iuN-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5DUeM5YPUfYHvOHh3iuN-6" value="Calculate total steam flow based on estimate" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="405" y="310" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5DUeM5YPUfYHvOHh3iuN-12" value="Can begin Reservoir Modelling" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="745" y="300" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5DUeM5YPUfYHvOHh3iuN-13" value="Retrieve and inspect data" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="310" width="90" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
